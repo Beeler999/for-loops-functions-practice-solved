@@ -6,7 +6,18 @@
 
 export function getClientWithLeastPositiveBalance(array) {
   // Your code goes here...
-  
+  let lowBalance = [];
+  for (let i = 0; i < array.length; i++) {
+    const account = array[i];
+    if (account.balance > 0) {
+      if (lowBalance.length == 0) {
+        lowBalance = [account];
+      } else if (account.balance < lowBalance[0].balance) {
+        lowBalance = [account];
+      }
+    }
+  }
+  return lowBalance;
 }
 
 // === TEST YOURSELF ===
